@@ -29,7 +29,7 @@ public class RemoteWebDriverTest {
       System.setProperty("webdriver.gecko.driver", "/usr/local/etc/geckodriver");
     	DesiredCapabilities cap = DesiredCapabilities.firefox();
     	cap.setCapability("marionette", true);
-    	cap.setBrowserName("*firefox");
+    	cap.setBrowserName("firefox");
     	cap.setVersion("50");
     	cap.setPlatform(Platform.LINUX);
     	// driver = new FirefoxDriver(cap);
@@ -38,7 +38,7 @@ public class RemoteWebDriverTest {
     	System.out.println("version BROWSER: "+ cap.getVersion());
     	System.out.println("NOMBRE plataforma: "+ cap.getPlatform());
     	System.out.println("-----------");
-    	 driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+    	 driver = new RemoteWebDriver(new URL("http://localhost:5555/wd/hub"), cap);
      	
     }
 
