@@ -29,6 +29,7 @@ public class RemoteWebDriverTest {
       System.setProperty("webdriver.gecko.driver", "/usr/local/etc/geckodriver");
     	DesiredCapabilities cap = DesiredCapabilities.firefox();
     	cap.setCapability("marionette", true);
+    	cap.setBrowserName("*firefox");
     	cap.setVersion("50");
     	cap.setPlatform(Platform.LINUX);
     	// driver = new FirefoxDriver(cap);
