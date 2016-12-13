@@ -36,7 +36,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- allowed values: R7, 1.0, 1.5, 2.0 or none -->
 		<wtp.version>none</wtp.version>
-	
 	</properties>
 	<dependencies>
 		<!-- WICKET DEPENDENCIES -->
@@ -76,7 +75,6 @@
 			<version>${jetty9.version}</version>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin -->
 		<dependency>
 			<groupId>org.codehaus.cargo</groupId>
@@ -89,10 +87,6 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.0.1</version>
 		</dependency>
-
-
-
-
 
 	</dependencies>
 	<build>
@@ -165,58 +159,6 @@
 					<wtpversion>${wtp.version}</wtpversion>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.cargo</groupId>
-				<artifactId>cargo-maven2-plugin</artifactId>
-				<version>1.6.1</version>
-				<configuration>
-					<container>
-						<containerId>tomcat7x</containerId>
-						<type>remote</type>
-					</container>
-					<configuration>
-						<type>runtime</type>
-						<properties>
-							<cargo.remote.username>qateam</cargo.remote.username>
-							<cargo.remote.password>qateam</cargo.remote.password>
-							<cargo.hostname>localhost</cargo.hostname>
-							<cargo.protocol>http</cargo.protocol>
-							<cargo.servlet.port>3030</cargo.servlet.port>
-						</properties>
-					</configuration>
-
-					<!-- Deployer configuration -->
-					<deployer>
-						<type>remote</type>
-					</deployer>
-					<deployables>
-						<deployable>
-							<groupId>HelloWorld</groupId>
-							<artifactId>HelloWorld</artifactId>
-							<type>war</type>
-						</deployable>
-					</deployables>
-
-				</configuration>
-			</plugin>
-			<!-- Unit tests are run by surefire. -->
-			<!-- Classes under src/test/java called *Test are included automatically. -->
-			<!-- Integration tests are run during the test phase. -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.16</version>
-			</plugin>
-			<!-- Integration tests are run by failsafe. -->
-			<!-- Classes under src/test/java called *IT are included automatically. -->
-			<!-- Integration tests are run during the verify phase. -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.16</version>
-			</plugin>
-
 		</plugins>
 	</build>
 
