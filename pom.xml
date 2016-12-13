@@ -36,8 +36,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- allowed values: R7, 1.0, 1.5, 2.0 or none -->
 		<wtp.version>none</wtp.version>
-		<!-- Posibilidad de evitar todo tipo de tests (por defecto evitar) -->
-		<skipTests>true</skipTests>
+	
 	</properties>
 	<dependencies>
 		<!-- WICKET DEPENDENCIES -->
@@ -208,11 +207,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.16</version>
-				<configuration>
-					<!-- Evitar tests, controlado por un flag que se puede cambiar desde 
-						línea de comando -->
-					<skipTests>${skipTests}</skipTests>
-				</configuration>
 			</plugin>
 			<!-- Integration tests are run by failsafe. -->
 			<!-- Classes under src/test/java called *IT are included automatically. -->
@@ -221,19 +215,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.16</version>
-				<configuration>
-					<!-- Evitar tests, controlado por un flag que se puede cambiar desde 
-						línea de comando -->
-					<skipTests>${skipTests}</skipTests>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 
 		</plugins>
