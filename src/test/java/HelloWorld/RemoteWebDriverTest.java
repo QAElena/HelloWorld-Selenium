@@ -25,11 +25,12 @@ public class RemoteWebDriverTest {
 
     @BeforeClass
     public static void conectarDriver() throws MalformedURLException {
-       //  driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.firefox());
-    	System.setProperty("webdriver.gecko.driver", "/usr/local/etc/geckodriver");
+      System.setProperty("webdriver.gecko.driver", "/usr/local/etc/geckodriver");
     	DesiredCapabilities cap = DesiredCapabilities.firefox();
     	cap.setCapability("marionette", true);
-    	 driver = new FirefoxDriver(cap);
+    	// driver = new FirefoxDriver(cap);
+    	 driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.firefox());
+     	
     }
 
     @Test
