@@ -29,7 +29,8 @@ public class RemoteWebDriverTest {
     	DesiredCapabilities cap = DesiredCapabilities.firefox();
     	cap.setCapability("marionette", true);
     	// driver = new FirefoxDriver(cap);
-    	 driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.firefox());
+    	
+    	 driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
      	
     }
 
