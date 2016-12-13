@@ -11,6 +11,7 @@ import java.net.URL;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -28,6 +29,8 @@ public class RemoteWebDriverTest {
       System.setProperty("webdriver.gecko.driver", "/usr/local/etc/geckodriver");
     	DesiredCapabilities cap = DesiredCapabilities.firefox();
     	cap.setCapability("marionette", true);
+    	cap.setVersion("50");
+    	cap.setPlatform(Platform.LINUX);
     	// driver = new FirefoxDriver(cap);
     	System.out.println("-----------");
     	System.out.println("NOMBRE BROWSER: "+ cap.getBrowserName());
