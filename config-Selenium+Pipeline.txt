@@ -1,0 +1,29 @@
+Arrancar Server Selenium como hub
+----------------------------------
+java -jar /usr/local/etc/selenium/selenium-server-standalone-3.0.1.jar -role hub
+
+Registrar nodo en el hub
+----------------------------------
+java -Dwebdriver.gecko.driver=/usr/local/etc/geckodriver -jar /usr/local/etc/selenium/selenium-server-standalone-3.0.1.jar -role node -hub http://localhost:4444/grid/register
+ 
+Ejecutar código proyecto Elena-pipeline
+-----------------------------------------
+node {
+   def mvnHome
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+      git 'https://github.com/QAElena/HelloWorld-Selenium.git' 
+   }
+   stage('Build') {
+      // Run the maven build
+      if (isUnix()) {
+          sh "mvn clean"  //Limpiar y actualziar dependencias
+     }
+    }
+    stage('Selenium') {
+      if (isUnix()) {
+         sh "mvn test"  
+     }
+   }
+}
+

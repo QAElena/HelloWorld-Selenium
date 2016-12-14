@@ -38,8 +38,9 @@ public class RemoteWebDriverTest {
     	System.out.println("version BROWSER: "+ cap.getVersion());
     	System.out.println("NOMBRE plataforma: "+ cap.getPlatform());
     	System.out.println("-----------");
+    	//URL conecta con el nodo del HUB
     	 driver = new RemoteWebDriver(new URL("http://localhost:5555/wd/hub"), cap);
-     	
+   	 
     }
 
     @Test
